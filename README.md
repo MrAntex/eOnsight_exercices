@@ -8,7 +8,7 @@ J'ai trouvé ces deux exercices très intérréssants, et plus particulièrement
 ### Exercice Data Engineering :
 Pour cet exercice j'ai utilisé Beautiful Soup 4 pour récupérer la liste des ponts situés à Gênes. Le script envoie ensuite ces données sur une base de données postgresql hébergée sur Heroku.
 
-J'ai volontairement laissé les identifiants de la base de données dans le code afin que vous puissiez l'utiliser correctement. Bien sur, ce ne serait pas le cas en production.
+Vous trouverez les identifiants, host, etc dans le mail que je vous ai envoyé concernant ces exercices, ils sont à ajouter au script manuellement pour des raisons de sécurité.
 
 #### Utilisation :
 (Il vous faudra les librairies `requests, BeautifulSoup, psycopg2, schedule, et time` d'installées sur votre machine)
