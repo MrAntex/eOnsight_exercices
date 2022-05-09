@@ -32,12 +32,12 @@ print('Liste de ponts récupérée.')
 
 print('Connexion à la base de données...')
 
-# On ouvre une connexion à la base de données
+# On ouvre une connexion à la base de données /!\ A modifier /!\
 conn = psycopg2.connect(
-host="ec2-54-76-43-89.eu-west-1.compute.amazonaws.com",
-database="d5ians6u408hn2",
-user="nooyxjbuglycdg",
-password="0ce112f2940a7dddb5f7f2ea59978c349285742c405f108b4f850a11f3fe132f",
+host="",
+database="",
+user="",
+password="",
 port="5432")
 
 cur = conn.cursor() # On crée un curseur
