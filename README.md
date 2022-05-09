@@ -6,7 +6,7 @@ Vous trouverez ici mon rendu pour les exercices demandés pour la candidature de
 J'ai trouvé ces deux exercices très intérréssants, et plus particulièrement celui d'imagerie sattelite. J'aurais voulu y passer plus de temps mais les cours ont occupé une bonne partie de ma journée. Je pense m'y repencher plus tard quoi qu'il arrive.
 
 ### Exercice Data Engineering :
-Pour cet exercice j'ai utilisé Beautiful Soup 4 pour récupérer la liste des ponts situés à Gênes. Le script ennvoie ensuite ces données sur une base de données postgresql hébergée sur Heroku.
+Pour cet exercice j'ai utilisé Beautiful Soup 4 pour récupérer la liste des ponts situés à Gênes. Le script envoie ensuite ces données sur une base de données postgresql hébergée sur Heroku.
 
 J'ai volontairement laissé les identifiants de la base de données dans le code afin que vous puissiez l'utiliser correctement. Bien sur, ce ne serait pas le cas en production.
 
@@ -25,12 +25,12 @@ Le premier script sert à créer une image couleur à partir des images par band
 
 Le script fonctionne de la manière suivante : il commence par récupérer les images sattelites correspondant aux différentes bandes de langueur d'onde, une image pour le bleu, une pour le rouge, une pour le vert et une infrarouge qui servira pour la luminosité.
 
-Après avoir récupéré les images, elles sont normalisées sur \[0,255\]. Est ensuite appliquée la correction de luminosité grâce à l'image infrarouge.
+Après avoir récupéré les images, elles sont normalisées sur \[0,255\]. Est ensuite appliquée la correction de luminosité en se basant sur l'image infrarouge.
 Enfin, les images sont fusionnées sur 3 canaux pour créer une image RGB.
 
 L'image est ensuite rognée pour ne sélectionner que la partie qui nous interresse, c'est à dire la partie où le pont se trouve.
 
-J'ai choisi de rogner l'image après la fusion des canaux, car même si cela prend théoriquement plus de temps, cela permet de pouvoir garder une image large si besoin (trouvable à `data/sattelite_full.png`).
+J'ai choisi de rogner l'image après la fusion des canaux, car même si cela prend théoriquement plus de temps, cela permet de pouvoir garder une image large si besoin (Trouvable [ici](https://github.com/MrAntex/eOnsight_exercices/blob/master/imagerie_sattelite/data/sattelite_full.png)).
 
 ##### Utilisation :
 (Il vous faudra les librairies `skimage, numpy, matplotlib, PIL et osgeo` d'installées sur votre machine)
@@ -42,11 +42,11 @@ Le second script permet d'isoler les zones ou se trouvent des infrastructures.
 Pour cela on utilise toujours les mêmes images mais on se sert maintenant aussi d'autres bandes dans l'invisible.
 
 Après un travail de recherche, j'ai appris qu'il était possible grâce à la combinaisons de plusieurs images de déduire à quelle "classe"  appartient un pixel, une classe étant par exemple de l'eau, de la végétation, de la route, etc.
-[Source](https://sentinels.copernicus.eu/web/sentinel/technical-guides/sentinel-2-msi/level-2a/algorithm)
+([Source](https://sentinels.copernicus.eu/web/sentinel/technical-guides/sentinel-2-msi/level-2a/algorithm))
 
 Il suffit ensuite de prendnre chaque pixel de l'image et de vérifier si il appartient à telle ou telle classe.
 
-En jouant avec les coefficients de chaque bande, on arrive à une résultat satisfaisant (L'image entière est trouvable à `data/infrastructures_full.png`).
+En jouant avec les coefficients de chaque bande, on arrive à une résultat satisfaisant (L'image entière est trouvable [ici](https://github.com/MrAntex/eOnsight_exercices/blob/master/imagerie_sattelite/data/infrasctructures_full.png)).
 
 Il serait possible d'uutiliser cette méthode pour isoler aussi le relief ou encore la végétation, mais j'ai manqué de temps pour aller jusqu'ici.
 
